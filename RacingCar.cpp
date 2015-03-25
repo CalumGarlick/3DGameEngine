@@ -1,11 +1,11 @@
 #include "stdafx.h"
 #include "RacingCar.h"
 #include "InputHandler.hpp"
+#include "CollisionEngine.hpp"
 
 RacingCar::RacingCar(void)
 {
 }
-
 
 RacingCar::~RacingCar(void)
 {
@@ -18,31 +18,52 @@ void RacingCar::init()
 
 void RacingCar::update()
 {
+	if(EngineInput::keyboardInput.isKeyHeld(sf::Keyboard::Up))
+	{
+		std::vector<Actor*>* _actorsReturned = getCollisionEngine().getActorPlaceFree(this,this->_transform._position.x,this->_transform._position.z - 0.1f,this->_transform._position.y);
+		if(_actorsReturned != 0)
+		{
+		}
+		else
+		{
+			_transform.rotate(glm::vec3(0,3,0));
+			_transform.setPosition(_transform._position + glm::vec3(0,0,-0.2f));
+		}
+	}
 	if(EngineInput::keyboardInput.isKeyHeld(sf::Keyboard::Right))
 	{
-		//Turn right
+		std::vector<Actor*>* _actorsReturned = getCollisionEngine().getActorPlaceFree(this,this->_transform._position.x + 0.1f,this->_transform._position.z,this->_transform._position.y);
+		if(_actorsReturned != 0)
+		{
+		}
+		else
+		{
+			_transform.rotate(glm::vec3(0,1.5f,0));
+			_transform.setPosition(_transform._position + glm::vec3(0.2f,0,0.0f));
+		}	
+	}
+	if(EngineInput::keyboardInput.isKeyHeld(sf::Keyboard::Down))
+	{
+		std::vector<Actor*>* _actorsReturned = getCollisionEngine().getActorPlaceFree(this,this->_transform._position.x,this->_transform._position.z + 0.1f,this->_transform._position.y);
+		if(_actorsReturned != 0)
+		{
+		}
+		else
+		{
+			_transform.rotate(glm::vec3(0,0.0f,0));
+			_transform.setPosition(_transform._position + glm::vec3(0,0,0.2f));
+		}
 	}
 	if(EngineInput::keyboardInput.isKeyHeld(sf::Keyboard::Left))
 	{
-		_transform.rotate(glm::vec3(90,0,0));
-	}
-	if(EngineInput::keyboardInput.isKeyHeld(sf::Keyboard::Space))
-	{
-		_transform.translateForward(5);
-	}
-
-	if(_jumpAmount > 0) //Do jump
-	{
-		_transform.translate(glm::vec3(0,_jumpAmount*0.01f,0));
-		_jumpAmount -=0.5f;
-	}
-
-	if(_transform._position.y < 0.5f) //On the ground do nothing
-	{
-		_jumpAmount = 20;
-	}
-	else //Off the ground do gravity
-	{
-		_transform.translate(glm::vec3(0,-_gravity*0.01f,0));
+		std::vector<Actor*>* _actorsReturned = getCollisionEngine().getActorPlaceFree(this,this->_transform._position.x - 0.1f,this->_transform._position.z,this->_transform._position.y);
+		if(_actorsReturned != 0)
+		{
+		}
+		else
+		{
+			_transform.rotate(glm::vec3(0,4.5f,0));
+			_transform.setPosition(_transform._position + glm::vec3(-0.2f,0,0.0f));
+		}
 	}
 }

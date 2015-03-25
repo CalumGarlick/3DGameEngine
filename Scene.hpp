@@ -16,6 +16,7 @@ using std::vector;
 #include <gtx\transform.hpp>
 
 //3DGameEngine
+#include "CollisionEngine.hpp"
 #include "SoundManager.hpp"
 #include "Mesh.hpp"
 #include "Actor.hpp"
@@ -60,6 +61,7 @@ private:
 	std::vector<sf::Vector3f>	_vertices;		//!< Verts for mesh
 	vector<sf::Vector3f>		_vertNorms;		//!< Vertex normals
 	std::vector<sf::Vector3i>	_indices;		//!< Indices
+	CollisionEngine _collisionEngine;
 
 	Shader _shaderTexture;		//!< Shader for texturing
 	Shader _shaderColour;		//!< Shader for colouring in accordance to normals
@@ -90,19 +92,16 @@ private:
 	glm::vec3 _lightPoint;				//!< The position of the light
 	//Test objects and textures below
 	Actor* _objectOne;
-	Actor* _objectTwo;
-	Actor* _objectThree;
-	Actor* _objectFour;
 	Actor* _objectGround;
-	Actor* _rotatingCube;
-	Actor* _rotatingCubeTwo;
-	Actor* _skyBox;
 	Actor* _loadingScreen;
+	Actor* _debugCursor;
+	Actor* block;
 	GLuint ProjectionViewModelMatrixID;
 	Texture testTexture;
 	Texture secondTexture;
 	Texture thirdTexture;
-	Texture fourthTexture;
+	Texture metalTexture;
+	Texture brickTexture;
 	Texture groundTexture;
 	Texture _skyBoxTexture;
 	Texture _loadingTexture;
@@ -111,6 +110,9 @@ public:
 	Actor& createActor(glm::vec3 position,Texture& texture, Mesh& mesh, int shaderIndex)
 	{
 		Actor* temp = new T_ACTORTYPE();
+		temp->setGridLocked(false);
+		temp->setGridPos(sf::Vector2i(0,0));
+		temp->_collisionEngine = &_collisionEngine;
 		temp->drawingInstance.giveTexture(texture);
 		temp->init();
 		temp->drawingInstance.giveMesh(mesh);
@@ -121,6 +123,31 @@ public:
 		return *temp;
 	}	//!< Create an actor from the templated type, the templated class must derive from the Actor base class
 
+	template<class T_ACTORTYPE>
+	Actor& createActor(glm::vec3 position,Texture& texture, Mesh& mesh, int shaderIndex, sf::Vector2i grid)
+	{
+		Actor* temp = new T_ACTORTYPE();
+		temp->setGridLocked(true);
+		temp->setGridPos(grid);
+		temp->_collisionEngine = &_collisionEngine;
+		temp->drawingInstance.giveTexture(texture);
+		temp->init();
+		temp->drawingInstance.giveMesh(mesh);
+
+		temp->_transform.setPosition(position);
+		_shaderRenderers[shaderIndex]->_activeObjects.push_back(temp);
+		_activeObjects.push_back(temp);
+		return *temp;
+	}	//!< Create an actor from the templated type, the templated class must derive from the Actor base class
+
+	bool isOdd( int integer )
+	{
+
+		if ( integer % 2== 0 )
+			return true;
+		else
+			return false;
+	}
 
 	void clearActors()
 	{

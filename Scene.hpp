@@ -105,6 +105,9 @@ private:
 	Texture groundTexture;
 	Texture _skyBoxTexture;
 	Texture _loadingTexture;
+
+	void destroyBricks (sf::Vector2i pos, int x, int y, int size);
+
 public:
 	template<class T_ACTORTYPE>
 	Actor& createActor(glm::vec3 position,Texture& texture, Mesh& mesh, int shaderIndex)

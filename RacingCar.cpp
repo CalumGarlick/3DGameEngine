@@ -20,7 +20,7 @@ void RacingCar::update()
 {
 	if(EngineInput::keyboardInput.isKeyHeld(sf::Keyboard::Up))
 	{
-		std::vector<Actor*>* _actorsReturned = getCollisionEngine().getActorPlaceFree(this,this->_transform._position.x,this->_transform._position.z - 0.1f,this->_transform._position.y);
+		std::vector<Actor*>* _actorsReturned = getCollisionEngine().getActorPlaceFree(this,this->_transform._position.x,this->_transform._position.z - 0.2f,this->_transform._position.y);
 		if(_actorsReturned != 0)
 		{
 		}
@@ -32,7 +32,7 @@ void RacingCar::update()
 	}
 	if(EngineInput::keyboardInput.isKeyHeld(sf::Keyboard::Right))
 	{
-		std::vector<Actor*>* _actorsReturned = getCollisionEngine().getActorPlaceFree(this,this->_transform._position.x + 0.1f,this->_transform._position.z,this->_transform._position.y);
+		std::vector<Actor*>* _actorsReturned = getCollisionEngine().getActorPlaceFree(this,this->_transform._position.x + 0.2f,this->_transform._position.z,this->_transform._position.y);
 		if(_actorsReturned != 0)
 		{
 		}
@@ -44,7 +44,7 @@ void RacingCar::update()
 	}
 	if(EngineInput::keyboardInput.isKeyHeld(sf::Keyboard::Down))
 	{
-		std::vector<Actor*>* _actorsReturned = getCollisionEngine().getActorPlaceFree(this,this->_transform._position.x,this->_transform._position.z + 0.1f,this->_transform._position.y);
+		std::vector<Actor*>* _actorsReturned = getCollisionEngine().getActorPlaceFree(this,this->_transform._position.x,this->_transform._position.z + 0.2f,this->_transform._position.y);
 		if(_actorsReturned != 0)
 		{
 		}
@@ -56,7 +56,7 @@ void RacingCar::update()
 	}
 	if(EngineInput::keyboardInput.isKeyHeld(sf::Keyboard::Left))
 	{
-		std::vector<Actor*>* _actorsReturned = getCollisionEngine().getActorPlaceFree(this,this->_transform._position.x - 0.1f,this->_transform._position.z,this->_transform._position.y);
+		std::vector<Actor*>* _actorsReturned = getCollisionEngine().getActorPlaceFree(this,this->_transform._position.x - 0.2f,this->_transform._position.z,this->_transform._position.y);
 		if(_actorsReturned != 0)
 		{
 		}

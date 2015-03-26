@@ -13,7 +13,10 @@
 class Transform
 {
 public:
-	
+	static glm::vec3 lerp( const glm::vec3& A, const glm::vec3& B, float t ){
+		return A*t + B*(1.f-t);
+	}
+
 	Transform();
 	~Transform();
 	void lookAt(glm::vec3 position);

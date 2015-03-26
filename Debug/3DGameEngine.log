@@ -1,4 +1,4 @@
-﻿Build started 25/03/2015 18:12:08.
+﻿Build started 26/03/2015 19:21:13.
      1>Project "C:\Users\Dedede\Documents\GitHub\3DGameEngine\3DGameEngine.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I"C:\Users\Dedede\Documents\GitHub\3DGameEngine\\..\SFML-2.1\include" /IC:\Users\Dedede\Documents\GitHub\3DGameEngine\\..\glm\glm /I"C:\Users\Dedede\Documents\GitHub\3DGameEngine\\..\glew-1.11.0\include" /IC:\Users\Dedede\Documents\GitHub\3DGameEngine\\..\assimp\include /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D GLM_FORCE_RADIANS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt Scene.cpp
@@ -6,13 +6,14 @@
      1>c:\users\dedede\documents\github\3dgameengine\scene.cpp(44): warning C4305: '=' : truncation from 'double' to 'float'
      1>c:\users\dedede\documents\github\3dgameengine\scene.cpp(45): warning C4305: '=' : truncation from 'double' to 'float'
      1>c:\users\dedede\documents\github\3dgameengine\scene.cpp(46): warning C4305: '=' : truncation from 'double' to 'float'
-     1>c:\users\dedede\documents\github\3dgameengine\scene.cpp(186): warning C4305: '=' : truncation from 'double' to 'float'
-     1>c:\users\dedede\documents\github\3dgameengine\scene.cpp(187): warning C4305: '=' : truncation from 'double' to 'float'
-     1>c:\users\dedede\documents\github\3dgameengine\scene.cpp(188): warning C4305: '=' : truncation from 'double' to 'float'
-     1>c:\users\dedede\documents\github\3dgameengine\scene.cpp(335): warning C4305: 'argument' : truncation from 'double' to 'float'
-     1>c:\users\dedede\documents\github\3dgameengine\scene.cpp(336): warning C4305: 'argument' : truncation from 'double' to 'float'
-     1>c:\users\dedede\documents\github\3dgameengine\scene.cpp(337): warning C4305: 'argument' : truncation from 'double' to 'float'
-     1>c:\users\dedede\documents\github\3dgameengine\scene.cpp(338): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\dedede\documents\github\3dgameengine\scene.cpp(190): warning C4305: '=' : truncation from 'double' to 'float'
+     1>c:\users\dedede\documents\github\3dgameengine\scene.cpp(191): warning C4305: '=' : truncation from 'double' to 'float'
+     1>c:\users\dedede\documents\github\3dgameengine\scene.cpp(192): warning C4305: '=' : truncation from 'double' to 'float'
+     1>c:\users\dedede\documents\github\3dgameengine\scene.cpp(259): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
+     1>c:\users\dedede\documents\github\3dgameengine\scene.cpp(378): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\dedede\documents\github\3dgameengine\scene.cpp(379): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\dedede\documents\github\3dgameengine\scene.cpp(380): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\dedede\documents\github\3dgameengine\scene.cpp(381): warning C4305: 'argument' : truncation from 'double' to 'float'
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Dedede\Documents\GitHub\3DGameEngine\Debug\3DGameEngine.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:\Users\Dedede\Documents\GitHub\3DGameEngine\\..\SFML-2.1\lib" /LIBPATH:C:\Users\Dedede\Documents\GitHub\3DGameEngine\\..\assimp\lib /LIBPATH:"C:\Users\Dedede\Documents\GitHub\3DGameEngine\\..\glew-1.11.0\lib\Release\Win32" "sfml-graphics-d.lib" "sfml-window-d.lib" "sfml-system-d.lib" "sfml-main-d.lib" "sfml-audio-d.lib" "sfml-network-d.lib" opengl32.lib glu32.lib glew32.lib assimpd.lib zlibstaticd.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Dedede\Documents\GitHub\3DGameEngine\Debug\3DGameEngine.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Dedede\Documents\GitHub\3DGameEngine\Debug\3DGameEngine.lib" /MACHINE:X86 Debug\3DGameEngine.res
          Debug\3DGameEngine.obj
@@ -40,4 +41,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:06.95
+Time Elapsed 00:00:07.40

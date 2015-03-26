@@ -11,12 +11,19 @@
 
 class CollisionEngine;
 
+enum ActorType {
+		UNTYPED,
+		STATIC,
+		ACTIVE,
+		BOMB
+	};
 /*! The base object that all game objects derive from */
 class Actor
 {
 private:
 	bool _gridLocked;
 	sf::Vector2i _gridPos;
+	ActorType _actorType;
 	
 	
 public:
@@ -25,6 +32,13 @@ public:
 	CollisionEngine& getCollisionEngine();
 	CollisionEngine* _collisionEngine;
 	Collider _collision;
+
+	void setActorType(ActorType a){
+		_actorType = a;
+	}
+	ActorType getActorType(){
+		return _actorType;
+	}
 
 	bool isGridLocked();
 	void setGridLocked(bool s)
